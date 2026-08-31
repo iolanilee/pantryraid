@@ -584,9 +584,11 @@ input[type="checkbox"]:checked
 
   font-size: 11px;
 
-  font-weight: 800;
+  font-weight: 900;
 
   text-transform: uppercase;
+  font-family: "Syndicat Grotesk", sans-serif;
+
 
   cursor: pointer;
 }
