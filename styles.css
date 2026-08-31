@@ -1,4 +1,6 @@
-/* GLOBAL */
+/* 
+   GLOBAL
+*/
 
 * {
   box-sizing: border-box;
@@ -12,32 +14,69 @@ body {
 }
 
 body {
-  background: #f3eee3;
+  background: #FFFBF5;
   color: #262626;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Syndicat Grotesk", sans-serif;
 }
 
 
-/* POSTER */
+/* 
+   CUSTOM TYPOGRAPHY
+*/
+
+@font-face {
+  font-family: "Syndicat Grotesk";
+  src: url("/fonts/SyndicatGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Limoncello Recipe";
+  src: url("fonts/LimoncelloRecipe.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* 
+   POSTER
+*/
 
 .poster {
   position: relative;
+
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
-  background: #f3eee3;
+
+  /*
+     Allow the page to grow vertically
+     when the columns + artwork are taller
+     than the screen.
+  */
+  overflow-x: hidden;
+
+  background: #FFFBF5;
   color: #262626;
 }
 
 
-/* PAPER TEXTURE */
+/* 
+   PAPER TEXTURE
+*/
 
 .poster::after {
   content: "";
+
   position: fixed;
   inset: 0;
+
   pointer-events: none;
+
   z-index: 20;
+
   opacity: 0.12;
 
   background:
@@ -53,71 +92,96 @@ body {
 }
 
 
-/* RED BORDERS */
+/* 
+   RED BORDERS
+*/
 
 .top-border {
   position: absolute;
+
   top: 0;
   left: 0;
+
   width: 100%;
   height: 9vh;
+
   background: #ed211b;
+
   z-index: 5;
 }
 
 .bottom-border {
   position: fixed;
+
   bottom: 0;
   left: 0;
+
   width: 100%;
   height: 4vh;
+
   background: #ed211b;
+
   z-index: 5;
 }
 
 
-/* MAIN CONTENT */
+/* 
+   MAIN CONTENT
+*/
 
 .content {
   position: relative;
-  padding: 9vh 5vw 8vh;
+
+  padding: 9vh 5vw 4vh;
+
   z-index: 3;
 }
 
 
 /* 
    TITLE
-    */
+*/
 
 .title {
   margin: 1vh 0 4vh;
+
   color: #ed211b;
 
-  font-family:
-    "Brush Script MT",
-    "Segoe Script",
-    "Comic Sans MS",
-    cursive;
+  font-family: "Limoncello Recipe", cursive;
 
   font-size: clamp(48px, 7vw, 110px);
-  font-weight: 700;
+
+  font-weight: 400;
+
   line-height: 0.9;
+
   letter-spacing: -3px;
 }
 
 
-/* THREE COLUMN LAYOUT */
+/* 
+   THREE COLUMN LAYOUT
+*/
 
 .columns {
   display: grid;
 
   grid-template-columns:
-    minmax(190px, 0.75fr)
-    minmax(360px, 1.3fr)
-    minmax(300px, 1.1fr);
+    minmax(180px, 0.75fr)
+    minmax(320px, 1.3fr)
+    minmax(280px, 1.1fr);
 
-  gap: 3vw;
+  gap: 2.5vw;
+
   width: 100%;
+
+  align-items: start;
+
+  /*
+     Space between the columns
+     and the artwork.
+  */
+  margin-bottom: 0;
 }
 
 .column {
@@ -125,18 +189,23 @@ body {
 }
 
 
-/* GENERAL TYPOGRAPHY */
+/* 
+   GENERAL TYPOGRAPHY
+*/
 
 .column h2 {
   margin: 0 0 1rem;
+
   color: #ed211b;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Syndicat Grotesk", sans-serif;
 
   font-size: clamp(14px, 1.1vw, 20px);
 
   line-height: 1;
+
   font-weight: 800;
+
   text-transform: uppercase;
 }
 
@@ -149,11 +218,15 @@ body {
 }
 
 
-/* LEFT COLUMN — VIBE */
+/* 
+   LEFT COLUMN — VIBE
+*/
 
 .vibe-options {
   list-style: none;
+
   padding: 0;
+
   margin: 0 0 2rem;
 }
 
@@ -165,6 +238,11 @@ body {
   border: 2px solid #262626;
 
   font-size: 11px;
+
+  text-transform: uppercase;
+
+  font-weight: 900;
+
   cursor: pointer;
 
   transition:
@@ -175,25 +253,30 @@ body {
 
 .vibe-options li:hover {
   background: #f7c9c5;
+
   transform: translateX(3px);
 }
 
 .vibe-options li.selected {
   background: #ed211b;
+
   color: white;
+
   border-color: #ed211b;
 }
 
 
-/* FLAVOR OPTIONS */
+/* 
+   FLAVOR OPTIONS
+*/
 
 .flavor-options {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 5px;
+
   margin: 0 0 2rem;
 }
 
@@ -205,14 +288,17 @@ body {
   border: 2px solid #262626;
 
   background: transparent;
+
   color: #262626;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Syndicat Grotesk", sans-serif;
 
   font-size: 9px;
+
   font-weight: 800;
 
   line-height: 1.1;
+
   text-transform: uppercase;
 
   cursor: pointer;
@@ -225,17 +311,22 @@ body {
 
 .flavor-option:hover {
   background: #f7c9c5;
+
   transform: translateY(-1px);
 }
 
 .flavor-option.selected {
   background: #ed211b;
+
   border-color: #ed211b;
+
   color: white;
 }
 
 
-/* SLIDERS */
+/* 
+   SLIDERS
+*/
 
 .slider-group {
   margin-bottom: 1.8rem;
@@ -243,30 +334,37 @@ body {
 
 .slider-label {
   display: flex;
+
   justify-content: space-between;
+
   gap: 5px;
 
   margin-bottom: 0.5rem;
 
   font-size: 9px;
+
   font-weight: 800;
+
   text-transform: uppercase;
 }
 
 input[type="range"] {
   width: 100%;
+
   accent-color: #ed211b;
+
   cursor: pointer;
 }
 
 
-/* INGREDIENT GRID */
+/* 
+   INGREDIENT GRID
+*/
 
 .ingredient-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 10px;
 
@@ -274,7 +372,9 @@ input[type="range"] {
 }
 
 
-/* INGREDIENT CARD */
+/* 
+   INGREDIENT CARD
+*/
 
 .ingredient-card {
   min-height: 170px;
@@ -284,20 +384,26 @@ input[type="range"] {
   border: 2px solid #262626;
 
   background: transparent;
+
   color: #262626;
 
   text-align: left;
 }
 
 
-/* INGREDIENT HEADER */
+/* 
+   INGREDIENT HEADER
+*/
 
 .ingredient-header {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
 
   padding-bottom: 0.55rem;
+
   margin-bottom: 0.45rem;
 
   border-bottom: 1px solid #262626;
@@ -308,28 +414,41 @@ input[type="range"] {
 }
 
 .ingredient-name {
-  font-size: 11px;
+  font-size: 14px;
+
   font-weight: 900;
+
   text-transform: uppercase;
 }
 
 
-/* CHECKLIST */
+/* 
+   CHECKLIST
+*/
 
 .ingredient-checklist {
   display: flex;
+
   flex-direction: column;
+
   gap: 4px;
 }
 
 .ingredient-checklist label {
   display: flex;
+
   align-items: center;
+
   gap: 6px;
 
   padding: 3px 2px;
 
   font-size: 9px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
   line-height: 1.1;
 
   cursor: pointer;
@@ -344,7 +463,9 @@ input[type="range"] {
 }
 
 
-/* CUSTOM CHECKBOX */
+/* 
+   CUSTOM CHECKBOX
+*/
 
 .ingredient-checklist input[type="checkbox"] {
   appearance: none;
@@ -366,6 +487,7 @@ input[type="range"] {
 .ingredient-checklist
 input[type="checkbox"]:checked {
   background: #ed211b;
+
   border-color: #ed211b;
 }
 
@@ -378,9 +500,11 @@ input[type="checkbox"]:checked::after {
   color: white;
 
   font-size: 9px;
+
   font-weight: 900;
 
   line-height: 9px;
+
   text-align: center;
 }
 
@@ -388,11 +512,14 @@ input[type="checkbox"]:checked::after {
 input[type="checkbox"]:checked
 + span {
   color: #ed211b;
+
   font-weight: 800;
 }
 
 
-/* CUSTOM INGREDIENT */
+/* 
+   CUSTOM INGREDIENT
+*/
 
 .custom-ingredients {
   margin-top: 1rem;
@@ -406,6 +533,7 @@ input[type="checkbox"]:checked
   color: #ed211b;
 
   font-size: 12px;
+
   font-weight: 800;
 
   text-transform: uppercase;
@@ -413,11 +541,13 @@ input[type="checkbox"]:checked
 
 .ingredient-input-row {
   display: flex;
+
   gap: 8px;
 }
 
 .ingredient-input {
   flex: 1;
+
   min-width: 0;
 
   padding: 0.75rem;
@@ -428,7 +558,7 @@ input[type="checkbox"]:checked
 
   color: #262626;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Syndicat Grotesk", sans-serif;
 
   font-size: 12px;
 
@@ -453,6 +583,7 @@ input[type="checkbox"]:checked
   color: white;
 
   font-size: 11px;
+
   font-weight: 800;
 
   text-transform: uppercase;
@@ -465,10 +596,13 @@ input[type="checkbox"]:checked
 }
 
 
-/* CUSTOM TAGS */
+/* 
+   CUSTOM TAGS
+*/
 
 .custom-list {
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 5px;
@@ -482,6 +616,7 @@ input[type="checkbox"]:checked
   border: 1px solid #262626;
 
   font-size: 9px;
+
   font-weight: 700;
 
   text-transform: uppercase;
@@ -502,10 +637,13 @@ input[type="checkbox"]:checked
 }
 
 
-/* SELECTED SUMMARY */
+/* 
+   SELECTED SUMMARY
+*/
 
 .selected-summary {
   margin-top: 1rem;
+
   padding-top: 1rem;
 
   border-top: 2px solid #262626;
@@ -517,6 +655,7 @@ input[type="checkbox"]:checked
   color: #ed211b;
 
   font-size: 10px;
+
   font-weight: 800;
 
   text-transform: uppercase;
@@ -524,11 +663,14 @@ input[type="checkbox"]:checked
 
 .selected-summary-text {
   font-size: 10px;
+
   line-height: 1.4;
 }
 
 
-/* RECIPE COLUMN */
+/* 
+   RECIPE COLUMN
+*/
 
 .recipe-column {
   position: relative;
@@ -550,6 +692,7 @@ input[type="checkbox"]:checked
   color: #ed211b;
 
   font-size: 10px;
+
   font-weight: 800;
 
   letter-spacing: 1px;
@@ -575,6 +718,7 @@ input[type="checkbox"]:checked
 
 .recipe-meta {
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 15px;
@@ -582,6 +726,7 @@ input[type="checkbox"]:checked
   margin-bottom: 1.25rem;
 
   font-size: 9px;
+
   font-weight: 800;
 
   text-transform: uppercase;
@@ -597,6 +742,7 @@ input[type="checkbox"]:checked
   color: #ed211b;
 
   font-size: 11px;
+
   font-weight: 800;
 
   text-transform: uppercase;
@@ -604,6 +750,7 @@ input[type="checkbox"]:checked
 
 .recipe-section ul {
   margin: 0;
+
   padding-left: 1.1rem;
 }
 
@@ -624,7 +771,9 @@ input[type="checkbox"]:checked
 }
 
 
-/* GENERATE BUTTON */
+/* 
+   GENERATE BUTTON
+*/
 
 .generate-button {
   width: 100%;
@@ -640,7 +789,10 @@ input[type="checkbox"]:checked
   color: white;
 
   font-size: 13px;
+
   font-weight: 900;
+
+  font-family: "Syndicat Grotesk", sans-serif;
 
   letter-spacing: 0.5px;
 
@@ -655,14 +807,19 @@ input[type="checkbox"]:checked
 
 .generate-button:hover {
   background: #262626;
+
   border-color: #262626;
 }
 
 
-/* ARTWORK */
+/* 
+   ARTWORK
+*/
 
 .artwork {
-  position: absolute;
+  position: relative;
+
+  width: 100%;
 
   z-index: 2;
 
@@ -673,66 +830,23 @@ input[type="checkbox"]:checked
   display: block;
 
   width: 100%;
-  height: 100%;
 
-  object-fit: contain;
-}
-
-.artwork-1 {
-  left: -2vw;
-  bottom: 1vh;
-
-  width: 22vw;
-  height: 25vh;
-}
-
-.artwork-2 {
-  left: 20vw;
-  bottom: 2vh;
-
-  width: 20vw;
-  height: 22vh;
-}
-
-.artwork-3 {
-  right: 27vw;
-  bottom: 2vh;
-
-  width: 12vw;
-  height: 25vh;
-}
-
-.artwork-4 {
-  right: 12vw;
-  bottom: 3vh;
-
-  width: 15vw;
-  height: 20vh;
-}
-
-.artwork-5 {
-  right: -2vw;
-  bottom: 0;
-
-  width: 25vw;
-  height: 25vh;
+  height: auto;
 }
 
 
+/* 
+   TABLET
+*/
 
-
-/* RESPONSIVE SECTION */
-
-
-
-/* TABLET */
-
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
 
   .columns {
     grid-template-columns:
-      0.8fr
-      1.2fr;
+      minmax(160px, 0.8fr)
+      minmax(280px, 1.2fr);
+
+    gap: 3vw;
   }
 
   .column-one {
@@ -750,7 +864,9 @@ input[type="checkbox"]:checked
 }
 
 
-/* MOBILE */
+/* 
+   MOBILE
+*/
 
 @media (max-width: 700px) {
 
@@ -760,32 +876,36 @@ input[type="checkbox"]:checked
 
   .poster {
     min-height: auto;
-    overflow: visible;
+
+    overflow-x: hidden;
   }
 
   .content {
-    padding: 9vh 6vw 10vh;
+    padding: 9vh 6vw 4vh;
   }
 
   .title {
     font-size: 16vw;
+
     margin-bottom: 5vh;
   }
 
   .columns {
     display: flex;
+
     flex-direction: column;
+
     gap: 35px;
+
+    margin-bottom: 4vh;
   }
 
   .flavor-options {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .ingredient-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .ingredient-card {
@@ -796,8 +916,44 @@ input[type="checkbox"]:checked
     min-height: auto;
   }
 
-  .artwork {
-    display: none;
+  /*
+     Artwork is intentionally NOT hidden
+     on mobile. It scales to the screen width.
+  */
+
+}
+
+
+/* 
+   SMALL MOBILE
+*/
+
+@media (max-width: 450px) {
+
+  .content {
+    padding-left: 5vw;
+
+    padding-right: 5vw;
+  }
+
+  .ingredient-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ingredient-card {
+    min-height: auto;
+  }
+
+  .ingredient-input-row {
+    flex-direction: column;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .recipe-meta {
+    gap: 8px;
   }
 
 }
