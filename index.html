@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Pantry Raid: Girl Dinner Meal Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="poster">
+
+    <!-- RED TOP BORDER -->
+    <div class="top-border"></div>
+
+    <!-- RED BOTTOM BORDER -->
+    <div class="bottom-border"></div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- TITLE -->
+      <h1 class="title">
+        Pantry Raid
+      </h1>
+
+      <!-- THREE COLUMNS -->
+      <section class="columns">
+
+        <!-- COLUMN ONE -->
+        <div class="column column-one">
+
+          <!-- VIBE -->
+          <h2>What's the vibe?</h2>
+
+          <ul class="vibe-options">
+
+            <li data-vibe="couch">
+              🛋️ Not Leaving My Couch
+            </li>
+
+            <li data-vibe="together">
+              ✨ I Have My Life Together
+            </li>
+
+            <li data-vibe="midnight">
+              🌙 Midnight Snack
+            </li>
+
+            <li data-vibe="healthy">
+              🥗 Trying to Be Healthy
+            </li>
+
+            <li data-vibe="broke">
+              💸 Broke AF
+            </li>
+
+            <li data-vibe="cook">
+              🍝 I Actually Want to Cook
+            </li>
+
+            <li data-vibe="guests">
+              🍽️ I'm Entertaining Guests
+            </li>
+
+          </ul>
+
+          <!-- FLAVOR -->
+          <h2>What's the craving?</h2>
+
+          <div class="flavor-options">
+
+            <button
+              type="button"
+              class="flavor-option selected"
+              data-flavor="sweet"
+            >
+              🍓 Sweet
+            </button>
+
+            <button
+              type="button"
+              class="flavor-option"
+              data-flavor="savory"
+            >
+              🧂 Savory
+            </button>
+
+            <button
+              type="button"
+              class="flavor-option"
+              data-flavor="spicy-bold"
+            >
+              🌶️ Spicy &amp; Bold
+            </button>
+
+            <button
+              type="button"
+              class="flavor-option"
+              data-flavor="fresh-tangy"
+            >
+              🍋 Fresh &amp; Tangy
+            </button>
+
+            <button
+              type="button"
+              class="flavor-option"
+              data-flavor="sweet-savory"
+            >
+              🍯 Sweet &amp; Savory
+            </button>
+
+            <button
+              type="button"
+              class="flavor-option"
+              data-flavor="surprise"
+            >
+              🎲 Surprise Me
+            </button>
+
+          </div>
+
+          <!-- EFFORT -->
+          <h2>Effort Level</h2>
+
+          <div class="slider-group">
+
+            <div class="slider-label">
+              <span>Zero</span>
+
+              <span id="effortValue">
+                Bare Minimum
+              </span>
+
+              <span>Doing the Most</span>
+            </div>
+
+            <input
+              type="range"
+              id="effort"
+              min="1"
+              max="5"
+              value="2"
+            >
+
+          </div>
+
+          <!-- HUNGER -->
+          <h2>Hunger Level</h2>
+
+          <div class="slider-group">
+
+            <div class="slider-label">
+              <span>Snackish</span>
+
+              <span id="hungerValue">
+                Meal
+              </span>
+
+              <span>Famished</span>
+            </div>
+
+            <input
+              type="range"
+              id="hunger"
+              min="1"
+              max="3"
+              value="2"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- COLUMN TWO -->
+        <div class="column ingredient-column">
+
+          <h2>What's in the pantry?</h2>
+
+          <p>
+            Check off what you've got.
+            Be honest. We can work with
+            almost anything.
+          </p>
+
+          <!-- INGREDIENT GRID -->
+          <div class="ingredient-grid">
+
+            <!-- PROTEIN -->
+            <div class="ingredient-card">
+
+              <div class="ingredient-header">
+
+                <span class="ingredient-icon">
+                  🥚
+                </span>
+
+                <span class="ingredient-name">
+                  Protein
+                </span>
+
+              </div>
+
+              <div class="ingredient-checklist">
+
+                <label>
+                  <input type="checkbox" value="Eggs">
+                  <span>Eggs</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Chicken">
+                  <span>Chicken</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Tofu">
+                  <span>Tofu</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Beans">
+                  <span>Beans</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Tuna">
+                  <span>Tuna</span>
+                </label>
+
+              </div>
+            </div>
+
+
+            <!-- CARBS -->
+            <div class="ingredient-card">
+
+              <div class="ingredient-header">
+
+                <span class="ingredient-icon">
+                  🍞
+                </span>
+
+                <span class="ingredient-name">
+                  Carbs
+                </span>
+
+              </div>
+
+              <div class="ingredient-checklist">
+
+                <label>
+                  <input type="checkbox" value="Bread">
+                  <span>Bread</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Pasta">
+                  <span>Pasta</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Rice">
+                  <span>Rice</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Potatoes">
+                  <span>Potatoes</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Tortillas">
+                  <span>Tortillas</span>
+                </label>
+
+              </div>
+            </div>
+
+
+            <!-- VEGGIES -->
+            <div class="ingredient-card">
+
+              <div class="ingredient-header">
+
+                <span class="ingredient-icon">
+                  🥬
+                </span>
+
+                <span class="ingredient-name">
+                  Veggies
+                </span>
+
+              </div>
+
+              <div class="ingredient-checklist">
+
+                <label>
+                  <input type="checkbox" value="Spinach">
+                  <span>Spinach</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Peppers">
+                  <span>Peppers</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Onion">
+                  <span>Onion</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Tomatoes">
+                  <span>Tomatoes</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Broccoli">
+                  <span>Broccoli</span>
+                </label>
+
+              </div>
+            </div>
+
+
+            <!-- DAIRY -->
+            <div class="ingredient-card">
+
+              <div class="ingredient-header">
+
+                <span class="ingredient-icon">
+                  🧀
+                </span>
+
+                <span class="ingredient-name">
+                  Dairy
+                </span>
+
+              </div>
+
+              <div class="ingredient-checklist">
+
+                <label>
+                  <input type="checkbox" value="Cheddar">
+                  <span>Cheddar</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Mozzarella">
+                  <span>Mozzarella</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Parmesan">
+                  <span>Parmesan</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Greek yogurt">
+                  <span>Greek yogurt</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Feta">
+                  <span>Feta</span>
+                </label>
+
+              </div>
+            </div>
+
+
+            <!-- SAUCES -->
+            <div class="ingredient-card">
+
+              <div class="ingredient-header">
+
+                <span class="ingredient-icon">
+                  🥫
+                </span>
+
+                <span class="ingredient-name">
+                  Sauces
+                </span>
+
+              </div>
+
+              <div class="ingredient-checklist">
+
+                <label>
+                  <input type="checkbox" value="Hot sauce">
+                  <span>Hot sauce</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Soy sauce">
+                  <span>Soy sauce</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Pesto">
+                  <span>Pesto</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Salsa">
+                  <span>Salsa</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Ranch">
+                  <span>Ranch</span>
+                </label>
+
+              </div>
+            </div>
+
+
+            <!-- EXTRAS -->
+            <div class="ingredient-card">
+
+              <div class="ingredient-header">
+
+                <span class="ingredient-icon">
+                  ✨
+                </span>
+
+                <span class="ingredient-name">
+                  Extras
+                </span>
+
+              </div>
+
+              <div class="ingredient-checklist">
+
+                <label>
+                  <input type="checkbox" value="Garlic">
+                  <span>Garlic</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Pickles">
+                  <span>Pickles</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Nuts">
+                  <span>Nuts</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Fresh herbs">
+                  <span>Fresh herbs</span>
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Chili flakes">
+                  <span>Chili flakes</span>
+                </label>
+
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- CUSTOM INGREDIENT -->
+          <div class="custom-ingredients">
+
+            <label for="ingredientInput">
+              Not Listed? Add it:
+            </label>
+
+            <div class="ingredient-input-row">
+
+              <input
+                id="ingredientInput"
+                class="ingredient-input"
+                type="text"
+                placeholder="e.g. half a sad avocado"
+              >
+
+              <button
+                id="addIngredient"
+                class="add-button"
+                type="button"
+              >
+                Add
+              </button>
+
+            </div>
+
+            <div
+              id="customList"
+              class="custom-list"
+            ></div>
+
+          </div>
+
+
+          <!-- SELECTED INGREDIENT SUMMARY -->
+          <div class="selected-summary">
+
+            <div class="selected-summary-title">
+              Your ingredients
+            </div>
+
+            <div
+              id="selectedSummary"
+              class="selected-summary-text"
+            >
+              Nothing selected yet.
+              Raid that pantry.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- COLUMN THREE — RECIPE -->
+        <div class="column recipe-column">
+
+          <div class="recipe-eyebrow">
+            Tonight's Girl Dinner
+          </div>
+
+          <h2
+            id="recipeTitle"
+            class="recipe-title"
+          >
+            What's cookin', good lookin'?
+          </h2>
+
+          <div class="recipe-meta">
+
+            <span id="recipeTime">
+              ⏱ 15 MIN
+            </span>
+
+            <span id="recipeDifficulty">
+              ★ EASY
+            </span>
+
+            <span id="recipeFlavor">
+              🍓 SWEET
+            </span>
+
+          </div>
+
+
+          <!-- INGREDIENTS -->
+          <div class="recipe-section">
+
+            <h3>Ingredients</h3>
+
+            <ul id="recipeIngredients">
+
+              <li>
+                Choose some ingredients first.
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <!-- INSTRUCTIONS -->
+          <div class="recipe-section">
+
+            <h3>How to make it</h3>
+
+            <p
+              id="recipeInstructions"
+              class="recipe-instructions"
+            >
+              Check off what's in your pantry,
+              add anything unusual, then hit
+              the button below.
+            </p>
+
+          </div>
+
+
+          <!-- GENERATE -->
+          <button
+            id="generateRecipe"
+            class="generate-button"
+            type="button"
+          >
+            ✨ Raid My Pantry
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- ARTWORK -->
+    <div class="artwork artwork-1">
+      <img src="images/artwork-1.png" alt="">
+    </div>
+
+    <div class="artwork artwork-2">
+      <img src="images/artwork-2.png" alt="">
+    </div>
+
+    <div class="artwork artwork-3">
+      <img src="images/artwork-3.png" alt="">
+    </div>
+
+    <div class="artwork artwork-4">
+      <img src="images/artwork-4.png" alt="">
+    </div>
+
+    <div class="artwork artwork-5">
+      <img src="images/artwork-5.png" alt="">
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
