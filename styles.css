@@ -17,6 +17,7 @@ body {
   background: #FFFBF5;
   color: #262626;
   font-family: "Syndicat Grotesk", sans-serif;
+  overflow-x: hidden;
 }
 
 
@@ -51,11 +52,6 @@ body {
   width: 100%;
   min-height: 100vh;
 
-  /*
-     Allow the page to grow vertically
-     when the columns + artwork are taller
-     than the screen.
-  */
   overflow-x: hidden;
 
   background: #FFFBF5;
@@ -112,6 +108,7 @@ body {
 
 .bottom-border {
   position: fixed;
+
   bottom: 0;
   left: 0;
 
@@ -119,6 +116,7 @@ body {
   height: 5.5vh;
 
   background: #ed211b;
+
   z-index: 9999;
 
   display: flex;
@@ -126,13 +124,15 @@ body {
   justify-content: flex-end;
 
   padding-right: 2rem;
-  box-sizing: border-box;
 
   color: #000000;
+
   font-size: 9px;
   font-weight: 900;
+
   text-transform: uppercase;
 }
+
 
 /* 
    MAIN CONTENT
@@ -141,7 +141,9 @@ body {
 .content {
   position: relative;
 
-  padding: 9vh 5vw 4vh;
+  width: 100%;
+
+  padding: 9vh 5vw 8vh;
 
   z-index: 3;
 }
@@ -186,10 +188,6 @@ body {
 
   align-items: start;
 
-  /*
-     Space between the columns
-     and the artwork.
-  */
   margin-bottom: 0;
 }
 
@@ -596,8 +594,8 @@ input[type="checkbox"]:checked
   font-weight: 900;
 
   text-transform: uppercase;
-  font-family: "Syndicat Grotesk", sans-serif;
 
+  font-family: "Syndicat Grotesk", sans-serif;
 
   cursor: pointer;
 }
@@ -829,10 +827,13 @@ input[type="checkbox"]:checked
 
 .artwork {
   position: relative;
+
   top: -50px;
 
   width: 100%;
+
   z-index: 2;
+
   pointer-events: none;
 }
 
@@ -844,9 +845,12 @@ input[type="checkbox"]:checked
   height: auto;
 }
 
+/* RESPONSIVE SECTION */
+
+
 
 /* 
-   TABLET
+   TABLET 701px – 900px
 */
 
 @media (max-width: 900px) {
@@ -874,11 +878,13 @@ input[type="checkbox"]:checked
 }
 
 
-/* 
-   MOBILE
-*/
+/* MOBILE 700px < */
 
 @media (max-width: 700px) {
+
+  /*
+     PAGE
+  */
 
   body {
     overflow-x: hidden;
@@ -886,19 +892,34 @@ input[type="checkbox"]:checked
 
   .poster {
     min-height: auto;
-
     overflow-x: hidden;
   }
 
+  /*
+     CONTENT
+  */
+
   .content {
-    padding: 9vh 6vw 4vh;
+    width: 100%;
+
+    padding: 9vh 6vw 9vh;
   }
+
+  /*
+     TITLE
+  */
 
   .title {
     font-size: 16vw;
 
-    margin-bottom: 5vh;
+    margin: 1vh 0 5vh;
+
+    letter-spacing: -2px;
   }
+
+  /*
+     STACK ALL COLUMNS
+  */
 
   .columns {
     display: flex;
@@ -907,63 +928,188 @@ input[type="checkbox"]:checked
 
     gap: 35px;
 
-    margin-bottom: 4vh;
+    width: 100%;
+
+    margin: 0;
   }
+
+  .column {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  /*
+     Reset tablet grid positioning
+  */
+
+  .column-one,
+  .ingredient-column,
+  .recipe-column {
+    grid-column: auto;
+  }
+
+  /*
+     FLAVOR OPTIONS
+  */
 
   .flavor-options {
     grid-template-columns: repeat(2, 1fr);
+
+    width: 100%;
   }
+
+  .flavor-option {
+    min-height: 45px;
+
+    font-size: 9px;
+  }
+
+  /*
+     INGREDIENT GRID
+  */
 
   .ingredient-grid {
     grid-template-columns: repeat(2, 1fr);
+
+    width: 100%;
+
+    gap: 8px;
   }
 
   .ingredient-card {
     min-height: 165px;
   }
 
+  /*
+     RECIPE
+  */
+
   .recipe-column {
+    width: 100%;
+
     min-height: auto;
+
+    padding: 1rem;
+  }
+
+  .recipe-title {
+    font-size: clamp(32px, 10vw, 50px);
+  }
+
+  .recipe-meta {
+    gap: 10px;
   }
 
   /*
-     Artwork is intentionally NOT hidden
-     on mobile. It scales to the screen width.
+     ARTWORK
   */
+
+  .artwork {
+    top: 0;
+
+    width: 100%;
+
+    margin-top: 20px;
+  }
+
+  /*
+     BOTTOM RED BAR
+  */
+
+  .bottom-border {
+    height: 5.5vh;
+
+    padding-right: 1rem;
+
+    font-size: 8px;
+  }
 
 }
 
 
 /* 
-   SMALL MOBILE
+   SMALL MOBILE 450px <
 */
 
 @media (max-width: 450px) {
+
+  /*
+     CONTENT
+  */
 
   .content {
     padding-left: 5vw;
 
     padding-right: 5vw;
+
+    padding-bottom: 10vh;
   }
+
+  /*
+     TITLE
+  */
+
+  .title {
+    font-size: 17vw;
+
+    letter-spacing: -2px;
+  }
+
+  /*
+     INGREDIENTS
+     One card per row
+  */
 
   .ingredient-grid {
     grid-template-columns: 1fr;
+
+    gap: 10px;
   }
 
   .ingredient-card {
     min-height: auto;
   }
 
+  /*
+     CUSTOM INGREDIENT INPUT
+  */
+
   .ingredient-input-row {
     flex-direction: column;
+
+    gap: 8px;
   }
 
+  .ingredient-input,
   .add-button {
     width: 100%;
   }
 
+  /*
+     RECIPE META
+  */
+
   .recipe-meta {
     gap: 8px;
+  }
+
+  /*
+     RECIPE
+  */
+
+  .recipe-column {
+    padding: 0.85rem;
+  }
+
+  /*
+     BOTTOM BORDER
+  */
+
+  .bottom-border {
+    padding-right: 0.75rem;
+
+    font-size: 7px;
   }
 
 }
