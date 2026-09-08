@@ -138,7 +138,7 @@ function updateIngredientSummary() {
   if (!ingredients.length) {
 
     summary.textContent =
-      "Nothing selected yet. Raid that pantry.";
+      "Nothing selected yet.";
 
     return;
 
@@ -329,578 +329,221 @@ hunger.addEventListener(
 );
 
 
-/* RECIPE DATABASE */
-
-const recipes = {
-
-  couch: {
-
-    title:
-      "The Couch Potato",
-
-    time:
-      "10 MIN",
-
-    difficulty:
-      "★ MINIMAL",
-
-    ingredients: [
-
-      "Crispy potatoes",
-
-      "Cheese",
-
-      "Hot sauce",
-
-      "Greek yogurt",
-
-      "Fresh herbs"
-
-    ],
-
-    instructions:
-      "Crisp the potatoes in a pan or air fryer. Top with cheese and let it melt. Add a dramatic drizzle of hot sauce and a dollop of yogurt. Finish with herbs. Eat directly from the pan while watching something questionable."
-
-  },
-
-
-  together: {
-
-    title:
-      "I Totally Planned This",
-
-    time:
-      "25 MIN",
-
-    difficulty:
-      "★★ EASY",
-
-    ingredients: [
-
-      "Your chosen protein",
-
-      "A carb",
-
-      "Two vegetables",
-
-      "A sauce",
-
-      "Fresh herbs"
-
-    ],
-
-    instructions:
-      "Cook your protein until golden. Sauté the vegetables separately so everything looks intentional. Add your carb, toss with sauce, and plate it like you absolutely knew what you were doing."
-
-  },
-
-
-  midnight: {
-
-    title:
-      "Midnight Snack Plate",
-
-    time:
-      "5 MIN",
-
-    difficulty:
-      "★ ZERO",
-
-    ingredients: [
-
-      "Cheese",
-
-      "Crackers or bread",
-
-      "Pickles",
-
-      "Something salty",
-
-      "Something crunchy"
-
-    ],
-
-    instructions:
-      "Put everything on a plate. There is no cooking. There is barely any assembly. Congratulations: you have invented dinner."
-
-  },
-
-
-  healthy: {
-
-    title:
-      "Hot Girl Fridge Bowl",
-
-    time:
-      "15 MIN",
-
-    difficulty:
-      "★★ EASY",
-
-    ingredients: [
-
-      "Greens",
-
-      "Your chosen protein",
-
-      "Roasted vegetables",
-
-      "Greek yogurt",
-
-      "Herbs and chili flakes"
-
-    ],
-
-    instructions:
-      "Cook the protein and vegetables with your favorite spices. Put them over greens, add yogurt as a creamy dressing, and finish aggressively with herbs and chili flakes."
-
-  },
-
-
-  broke: {
-
-    title:
-      "Financially Responsible Pasta",
-
-    time:
-      "15 MIN",
-
-    difficulty:
-      "★ EASY",
-
-    ingredients: [
-
-      "Pasta",
-
-      "Garlic",
-
-      "Cheese",
-
-      "Chili flakes",
-
-      "A splash of pasta water"
-
-    ],
-
-    instructions:
-      "Boil the pasta. Sauté garlic and chili flakes in whatever oil you have. Toss in the pasta with a splash of pasta water and a heroic amount of cheese. Stir until glossy."
-
-  },
-
-
-  cook: {
-
-    title:
-      "I Fear I Have Become a Chef",
-
-    time:
-      "30 MIN",
-
-    difficulty:
-      "★★★ FUN",
-
-    ingredients: [
-
-      "Your chosen protein",
-
-      "Pasta or rice",
-
-      "Three vegetables",
-
-      "A sauce",
-
-      "Fresh herbs"
-
-    ],
-
-    instructions:
-      "Prep everything before you start. Sear the protein until deeply browned. Cook your vegetables separately, build your sauce, then bring everything together with your carb. Taste constantly. Pretend you're on a cooking show."
-
-  },
-
-
-  guests: {
-
-    title:
-      "Casual Dinner Party Flex",
-
-    time:
-      "35 MIN",
-
-    difficulty:
-      "★★★ IMPRESSIVE",
-
-    ingredients: [
-
-      "A protein",
-
-      "A beautiful carb",
-
-      "Seasonal vegetables",
-
-      "A creamy element",
-
-      "Fresh herbs"
-
-    ],
-
-    instructions:
-      "Build a colorful platter with your protein in the center and the vegetables and carb around it. Add the creamy element as a sauce and finish with herbs. Serve family-style and accept compliments."
-
-  }
-
-};
-
-
 /* GENERATE RECIPE */
 
 document
   .getElementById("generateRecipe")
-  .addEventListener(
-    "click",
-    generateRecipe
-  );
+  .addEventListener("click", generateRecipe);
 
 
-function generateRecipe() {
+async function generateRecipe() {
 
-  const recipe =
-    recipes[selectedVibe];
+  const ingredients = getSelectedIngredients();
 
-  const ingredients =
-    getSelectedIngredients();
+  /* USER MUST SELECT */
 
+  if (!ingredients.length) {
 
-  /*
-   * Surprise Me gets a random
-   * flavor profile every time
-   * the recipe is generated.
-   */
+    document.getElementById(
+      "recipeTitle"
+    ).textContent =
+      "Add some ingredients first!";
 
-  let flavorToUse =
-    selectedFlavor;
+    document.getElementById(
+      "recipeInstructions"
+    ).textContent =
+      "Check off a few ingredients above and I'll turn them into dinner.";
 
-
-  if (selectedFlavor === "surprise") {
-
-    const surpriseFlavors = [
-
-      "sweet",
-
-      "savory",
-
-      "spicy-bold",
-
-      "fresh-tangy",
-
-      "sweet-savory"
-
-    ];
-
-    flavorToUse =
-      surpriseFlavors[
-        Math.floor(
-          Math.random() *
-          surpriseFlavors.length
-        )
-      ];
+    return;
 
   }
 
 
-  /* RECIPE TITLE */
+  /* Slider values */
 
-  document.getElementById(
-    "recipeTitle"
-  ).textContent =
-    recipe.title;
+  const effortLabels = [
 
+    "Zero",
+    "Bare Minimum",
+    "Pretty Easy",
+    "I'm Cooking",
+    "Doing the Most"
 
-  /* TIME */
+  ];
 
-  document.getElementById(
-    "recipeTime"
-  ).textContent =
-    `⏱ ${recipe.time}`;
+  const hungerLabels = [
 
+    "Snackish",
+    "Meal",
+    "Famished"
 
-  /* DIFFICULTY */
-
-  document.getElementById(
-    "recipeDifficulty"
-  ).textContent =
-    recipe.difficulty;
+  ];
 
 
-  /* FLAVOR */
+  const effortLevel =
+    effortLabels[effort.value - 1];
 
-  if (selectedFlavor === "surprise") {
+  const hungerLevel =
+    hungerLabels[hunger.value - 1];
+
+
+  /* Show loading state */
+
+  const recipeColumn =
+    document.querySelector(".recipe-column");
+
+  const recipeTitle =
+    document.getElementById("recipeTitle");
+
+  const recipeInstructions =
+    document.getElementById("recipeInstructions");
+
+  const ingredientList =
+    document.getElementById("recipeIngredients");
+
+
+  recipeTitle.textContent =
+    "Cooking up some ideas...";
+
+  recipeInstructions.textContent =
+    "Grabbing my chef hat...";
+
+  ingredientList.innerHTML =
+    "<li>Gathering ingredients...</li>";
+
+
+  /* Send information to our Node server */
+
+  try {
+
+    const response =
+      await fetch("/.netlify/functions/generate-recipe", {
+
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+          vibe: selectedVibe,
+
+          flavor: selectedFlavor,
+
+          effort: effortLevel,
+
+          hunger: hungerLevel,
+
+          ingredients: ingredients
+
+        })
+
+      });
+
+
+    /* Check for an error */
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Recipe request failed."
+      );
+
+    }
+
+
+    /* Get Gemini's recipe */
+
+    const recipe =
+      await response.json();
+
+
+    /* DISPLAY TITLE */
+
+    recipeTitle.textContent =
+      recipe.title;
+
+
+    /* DISPLAY TIME */
+
+    document.getElementById(
+      "recipeTime"
+    ).textContent =
+      `⏱ ${recipe.time}`;
+
+
+    /* DISPLAY DIFFICULTY */
+
+    document.getElementById(
+      "recipeDifficulty"
+    ).textContent =
+      recipe.difficulty;
+
+
+    /* DISPLAY FLAVOR */
 
     document.getElementById(
       "recipeFlavor"
     ).textContent =
-      "🎲 SURPRISE ME";
-
-  } else {
-
-    updateFlavorDisplay();
-
-  }
+      recipe.flavor;
 
 
-  /* BUILD INGREDIENT LIST */
+    /* DISPLAY INGREDIENTS */
 
-  let recipeIngredients = [];
-
-
-  /*
-   * Start with the ingredients
-   * the user actually has.
-   */
-
-  if (ingredients.length) {
-
-    recipeIngredients = [
-      ...ingredients
-    ];
-
-  }
+    ingredientList.innerHTML = "";
 
 
-  /*
-   * Add recipe suggestions.
-   */
+    recipe.ingredients.forEach(
+      ingredient => {
 
-  recipeIngredients =
-    recipeIngredients.concat(
-      recipe.ingredients
+        const li =
+          document.createElement("li");
+
+        li.textContent =
+          ingredient;
+
+        ingredientList.appendChild(li);
+
+      }
     );
 
 
-  /* FLAVOR PROFILE ADDITIONS */
+    /* DISPLAY INSTRUCTIONS */
 
-  if (flavorToUse === "sweet") {
+    recipeInstructions.textContent =
+      recipe.instructions;
 
-    recipeIngredients.push(
-      "A sweet element"
-    );
 
-  }
+    /* VISUAL FEEDBACK */
 
+    recipeColumn.style.background =
+      "#f7c9c5";
 
-  if (flavorToUse === "savory") {
 
-    recipeIngredients.push(
-      "Extra savory seasoning"
-    );
-
-  }
-
-
-  if (flavorToUse === "spicy-bold") {
-
-    recipeIngredients.push(
-      "Chili or hot sauce",
-      "Bold seasoning"
-    );
-
-  }
-
-
-  if (flavorToUse === "fresh-tangy") {
-
-    recipeIngredients.push(
-      "Lemon or lime",
-      "Fresh herbs"
-    );
-
-  }
-
-
-  if (flavorToUse === "sweet-savory") {
-
-    recipeIngredients.push(
-      "A sweet element",
-      "A salty or savory element"
-    );
-
-  }
-
-
-  /* SURPRISE ME ADDITIONS */
-
-  if (selectedFlavor === "surprise") {
-
-    const surpriseAdditions = [
-
-      [
-        "Honey",
-        "Chili flakes"
-      ],
-
-      [
-        "Lemon",
-        "Fresh herbs"
-      ],
-
-      [
-        "Hot sauce",
-        "Garlic"
-      ],
-
-      [
-        "Maple syrup",
-        "Feta"
-      ],
-
-      [
-        "Pickles",
-        "Chili flakes"
-      ],
-
-      [
-        "Jam",
-        "Cheddar"
-      ]
-
-    ];
-
-
-    const surprise =
-      surpriseAdditions[
-        Math.floor(
-          Math.random() *
-          surpriseAdditions.length
-        )
-      ];
-
-
-    recipeIngredients.push(
-      ...surprise
-    );
-
-  }
-
-
-  /* REMOVE DUPLICATES */
-
-  recipeIngredients = [
-    ...new Set(recipeIngredients)
-  ];
-
-
-  /* 
-     KEEP IT READABLE
-      */
-
-  recipeIngredients =
-    recipeIngredients.slice(0, 9);
-
-
-  /* DISPLAY INGREDIENTS */
-
-  const ingredientList =
-    document.getElementById(
-      "recipeIngredients"
-    );
-
-  ingredientList.innerHTML = "";
-
-
-  recipeIngredients.forEach(
-    ingredient => {
-
-      const li =
-        document.createElement("li");
-
-      li.textContent = ingredient;
-
-      ingredientList.appendChild(li);
-
-    }
-  );
-
-
-  /* FLAVOR-SPECIFIC INSTRUCTIONS */
-
-  let instructions =
-    recipe.instructions;
-
-
-  if (flavorToUse === "sweet") {
-
-    instructions +=
-      " Since you're craving sweet, finish it with a little sweetness if it makes sense — think fruit, honey, maple, jam, or a sweet sauce.";
-
-  }
-
-
-  if (flavorToUse === "savory") {
-
-    instructions +=
-      " Keep things firmly savory with garlic, herbs, salt, pepper, cheese, or your favorite savory seasoning.";
-
-  }
-
-
-  if (flavorToUse === "spicy-bold") {
-
-    instructions +=
-      " Turn up the personality with chili flakes, hot sauce, garlic, smoked paprika, or another bold seasoning. Don't be shy.";
-
-  }
-
-
-  if (flavorToUse === "fresh-tangy") {
-
-    instructions +=
-      " Finish with something bright and fresh — a squeeze of lemon or lime, fresh herbs, pickles, or a tangy yogurt-based sauce.";
-
-  }
-
-
-  if (flavorToUse === "sweet-savory") {
-
-    instructions +=
-      " Lean into the contrast: pair something sweet like honey, maple, jam, or fruit with something salty and savory like cheese, chili, or soy sauce.";
-
-  }
-
-
-  if (selectedFlavor === "surprise") {
-
-    instructions +=
-      " You chose Surprise Me, so embrace the chaos. The flavor combination above is your wildcard — trust the process.";
-
-  }
-
-
-  document.getElementById(
-    "recipeInstructions"
-  ).textContent =
-    instructions;
-
-
-  /* VISUAL FEEDBACK */
-
-  const recipeColumn =
-    document.querySelector(
-      ".recipe-column"
-    );
-
-
-  recipeColumn.style.background =
-    "#f7c9c5";
-
-
-  setTimeout(
-    () => {
+    setTimeout(() => {
 
       recipeColumn.style.background =
         "rgba(255, 255, 255, 0.12)";
 
-    },
-    300
-  );
+    }, 300);
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    recipeTitle.textContent =
+      "HUH?! Let's try that again.";
+
+
+    recipeInstructions.textContent =
+      "OOPS! Something went wrong.";
+
+
+    ingredientList.innerHTML =
+      "<li>Try again in a moment.</li>";
+
+  }
 
 }
