@@ -403,13 +403,13 @@ async function generateRecipe() {
 
 
   recipeTitle.textContent =
-    "Cooking up some ideas...";
+    "Cooking up some ideas ...";
 
   recipeInstructions.textContent =
-    "Grabbing my chef hat...";
+    "Grabbing my chef hat ...";
 
   ingredientList.innerHTML =
-    "<li>Gathering ingredients...</li>";
+    "<li>Gathering ingredients ...</li>";
 
 
   /* Send information to our Node server */
@@ -511,8 +511,22 @@ async function generateRecipe() {
 
     /* DISPLAY INSTRUCTIONS */
 
-    recipeInstructions.textContent =
-      recipe.instructions;
+recipeInstructions.innerHTML = "";
+
+recipe.instructions.forEach(
+  instruction => {
+
+    const li =
+      document.createElement("li");
+
+    li.textContent =
+      instruction;
+
+    recipeInstructions.appendChild(li);
+
+  }
+);
+
 
 
     /* VISUAL FEEDBACK */

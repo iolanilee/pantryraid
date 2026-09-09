@@ -145,7 +145,7 @@ Return ONLY valid JSON in this exact format:
     return new Response(
       JSON.stringify({
         error:
-          "Something went wrong generating the recipe."
+          "Something went wrong generating the recipe. Please try again."
       }),
       {
         status: 500,
