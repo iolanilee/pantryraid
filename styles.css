@@ -686,55 +686,77 @@ input[type="checkbox"]:checked
   transition: background 0.2s ease;
 }
 
-.refresh-button {
+
+/* 
+   RECIPE ACTION BUTTONS
+*/
+
+.recipe-actions {
   position: absolute;
+
   top: 0.75rem;
   right: 0.75rem;
+
+  display: flex;
+
+  gap: 5px;
+
+  z-index: 2;
+}
+
+.recipe-action-button {
   width: 34px;
   height: 34px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 0;
+
   border: 0px solid #FFFBF5;
+
   background: transparent;
-  color: #ed211b;
+
+  color: #262626;
+
   font-family: "Syndicat Grotesk", sans-serif;
-  font-size: 20px;
+
+  font-size: 19px;
   font-weight: 900;
+
   line-height: 1;
+
   cursor: pointer;
+
   transition:
     background 0.15s ease,
     color 0.15s ease,
     transform 0.15s ease;
 }
 
-.refresh-button:hover {
+.recipe-action-button:hover {
+  background: #FFFBF5;
 
-  color: #000000;
+  border-color: #FFFBF5;
 
+  color: #ed211b;
+}
+
+#refreshRecipe:hover {
   transform: rotate(90deg);
 }
 
-.refresh-button:active {
-  transform: rotate(180deg);
+#startOver:hover {
+  transform: rotate(-90deg);
 }
 
 
-.refresh-button.loading {
-  animation: spin 0.8s linear infinite;
+.recipe-action-button:active {
+  transform: scale(0.9);
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
 
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 
 .recipe-eyebrow {

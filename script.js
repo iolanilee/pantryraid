@@ -360,11 +360,150 @@ async function generateRecipe() {
 
 
 
+
 /* REFRESH RECIPE */
 
 document
   .getElementById("refreshRecipe")
   .addEventListener("click", generateRecipe);
+
+
+/* START OVER */
+
+document
+  .getElementById("startOver")
+  .addEventListener("click", startOver);
+
+
+function startOver() {
+
+  /* Reset vibe */
+
+  selectedVibe = "couch";
+
+  document
+    .querySelectorAll(".vibe-options li")
+    .forEach(item => {
+
+      item.classList.remove("selected");
+
+    });
+
+  document
+    .querySelector(
+      '.vibe-options li[data-vibe="couch"]'
+    )
+    .classList.add("selected");
+
+
+  /* Reset flavor */
+
+  selectedFlavor = "sweet";
+
+  document
+    .querySelectorAll(".flavor-option")
+    .forEach(item => {
+
+      item.classList.remove("selected");
+
+    });
+
+  document
+    .querySelector(
+      '.flavor-option[data-flavor="sweet"]'
+    )
+    .classList.add("selected");
+
+  updateFlavorDisplay();
+
+
+  /* Reset effort */
+
+  effort.value = 2;
+
+  effortValue.textContent =
+    "Bare Minimum";
+
+
+  /* Reset hunger */
+
+  hunger.value = 2;
+
+  hungerValue.textContent =
+    "Meal";
+
+
+  /* Clear checkboxes */
+
+  document
+    .querySelectorAll(
+      '.ingredient-checklist input[type="checkbox"]'
+    )
+    .forEach(checkbox => {
+
+      checkbox.checked = false;
+
+    });
+
+
+  /* Clear custom ingredients */
+
+  customIngredients.length = 0;
+
+  ingredientInput.value = "";
+
+  renderCustomIngredients();
+
+
+  /* Reset ingredient summary */
+
+  updateIngredientSummary();
+
+
+  /* Reset recipe */
+
+  document.getElementById(
+    "recipeTitle"
+  ).textContent =
+    "Tonight's Recipe";
+
+
+  document.getElementById(
+    "recipeTime"
+  ).textContent =
+    "⏱ 15 MIN";
+
+
+  document.getElementById(
+    "recipeDifficulty"
+  ).textContent =
+    "★ EASY";
+
+
+  updateFlavorDisplay();
+
+
+  document.getElementById(
+    "recipeIngredients"
+  ).innerHTML =
+    "<li>Add some ingredients first.</li>";
+
+
+  document.getElementById(
+    "recipeInstructions"
+  ).innerHTML =
+    "<li>Once you have compiled a selection of ingredients, click the button below.</li>";
+
+
+  /* Reset recipe card background */
+
+  document.querySelector(
+    ".recipe-column"
+  ).style.background =
+    "rgba(255, 255, 255, 0.12)";
+
+}
+
 
 
 
