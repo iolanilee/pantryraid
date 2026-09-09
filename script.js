@@ -509,7 +509,8 @@ async function generateRecipe() {
     );
 
 
-    /* DISPLAY INSTRUCTIONS */
+
+/* DISPLAY INSTRUCTIONS */
 
 recipeInstructions.innerHTML = "";
 
@@ -526,6 +527,8 @@ recipe.instructions.forEach(
 
   }
 );
+
+
 
 
 
