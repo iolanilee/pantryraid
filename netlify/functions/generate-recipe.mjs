@@ -36,7 +36,7 @@ export default async (req) => {
     } = await req.json();
 
 
-    // Create the Gemini prompt
+    // GEMINI PROMPT HERE
     const prompt = `
 You are a fun, clever recipe creator for a website called
 "Pantry Raid: Girl Dinner Meal Generator."
@@ -66,7 +66,7 @@ IMPORTANT RULES:
 - Match the requested effort level.
 - Match the requested flavor.
 - Match the user's hunger level.
-- Keep the personality playful, witty and slightly chaotic.
+- Keep the personality playful, simple and concise.
 - The recipe should still be useful and clear.
 - If an ingredient is not appropriate for the recipe, simply don't use it.
 - Give clear, numbered cooking instructions.
