@@ -359,6 +359,15 @@ async function generateRecipe() {
   }
 
 
+
+/* REFRESH RECIPE */
+
+document
+  .getElementById("refreshRecipe")
+  .addEventListener("click", generateRecipe);
+
+
+
   /* Slider values */
 
   const effortLabels = [
