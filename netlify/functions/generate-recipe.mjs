@@ -71,6 +71,7 @@ IMPORTANT RULES:
 - If an ingredient is not appropriate for the recipe, simply don't use it.
 - Give clear, numbered cooking instructions.
 - Return 4 to 7 cooking steps.
+- Use recipes from the internet.
 
 Return ONLY valid JSON in this exact format:
 
