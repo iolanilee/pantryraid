@@ -1,6 +1,4 @@
-/* 
-   GLOBAL
-*/
+/* GLOBAL */
 
 * {
   box-sizing: border-box;
@@ -61,12 +59,9 @@ a:hover {
 
 .poster {
   position: relative;
-
   width: 100%;
   min-height: 100vh;
-
   overflow-x: hidden;
-
   background: #FFFBF5;
   color: #262626;
 }
@@ -78,16 +73,11 @@ a:hover {
 
 .poster::after {
   content: "";
-
   position: fixed;
   inset: 0;
-
   pointer-events: none;
-
   z-index: 20;
-
   opacity: 0.12;
-
   background:
     repeating-linear-gradient(
       0deg,
@@ -107,15 +97,11 @@ a:hover {
 
 .top-border {
   position: absolute;
-
   top: 0;
   left: 0;
-
   width: 100%;
   height: 9vh;
-
   background: #ed211b;
-
   z-index: 5;
 }
 
@@ -171,11 +157,8 @@ a:hover {
 
 .content {
   position: relative;
-
   width: 100%;
-
   padding: 9vh 5vw 8vh;
-
   z-index: 3;
 }
 
@@ -186,17 +169,11 @@ a:hover {
 
 .title {
   margin: 1vh 0 4vh;
-
   color: #ed211b;
-
   font-family: "Limoncello Recipe", cursive;
-
   font-size: clamp(48px, 7vw, 110px);
-
   font-weight: 400;
-
   line-height: 0.9;
-
   letter-spacing: -3px;
 }
 
@@ -214,17 +191,48 @@ a:hover {
     minmax(280px, 1.1fr);
 
   gap: 2.5vw;
-
   width: 100%;
-
   align-items: start;
-
   margin-bottom: 0;
 }
 
 .column {
   min-width: 0;
 }
+
+/* RECIPE COLUMN WRAPPER */ 
+.recipe-column-wrapper { 
+  min-width: 0; width: 100%; 
+}
+
+
+/* START OVER BUTTON */
+
+.start-over-button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 1rem;
+  border: 2px solid #262626;
+  background: #ed211b;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 900;
+  font-family: "Syndicat Grotesk", sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.start-over-button:hover {
+  background: #262626;
+  border-color: #262626;
+  color: white;
+}
+
+
 
 
 /* 
@@ -233,25 +241,17 @@ a:hover {
 
 .column h2 {
   margin: 0 0 1rem;
-
   color: #ed211b;
-
   font-family: "Syndicat Grotesk", sans-serif;
-
   font-size: clamp(14px, 1.1vw, 20px);
-
   line-height: 1;
-
   font-weight: 800;
-
   text-transform: uppercase;
 }
 
 .column p {
   margin: 0 0 1.5rem;
-
   font-size: clamp(11px, 0.8vw, 16px);
-
   line-height: 1.35;
 }
 
@@ -262,25 +262,17 @@ a:hover {
 
 .vibe-options {
   list-style: none;
-
   padding: 0;
-
   margin: 0 0 2rem;
 }
 
 .vibe-options li {
   margin-bottom: 0.35rem;
-
   padding: 0.4rem 0.6rem;
-
   border: 2px solid #262626;
-
   font-size: 11px;
-
   text-transform: uppercase;
-
   font-weight: 900;
-
   cursor: pointer;
 
   transition:
@@ -291,15 +283,12 @@ a:hover {
 
 .vibe-options li:hover {
   background: #f7c9c5;
-
   transform: translateX(3px);
 }
 
 .vibe-options li.selected {
   background: #ed211b;
-
   color: white;
-
   border-color: #ed211b;
 }
 
@@ -310,37 +299,23 @@ a:hover {
 
 .flavor-options {
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
   gap: 5px;
-
   margin: 0 0 2rem;
 }
 
 .flavor-option {
   min-height: 42px;
-
   padding: 0.55rem 0.3rem;
-
   border: 2px solid #262626;
-
   background: transparent;
-
   color: #262626;
-
   font-family: "Syndicat Grotesk", sans-serif;
-
   font-size: 9px;
-
   font-weight: 800;
-
   line-height: 1.1;
-
   text-transform: uppercase;
-
   cursor: pointer;
-
   transition:
     background 0.15s ease,
     color 0.15s ease,
@@ -349,15 +324,12 @@ a:hover {
 
 .flavor-option:hover {
   background: #f7c9c5;
-
   transform: translateY(-1px);
 }
 
 .flavor-option.selected {
   background: #ed211b;
-
   border-color: #ed211b;
-
   color: white;
 }
 
@@ -372,25 +344,17 @@ a:hover {
 
 .slider-label {
   display: flex;
-
   justify-content: space-between;
-
   gap: 5px;
-
   margin-bottom: 0.5rem;
-
   font-size: 9px;
-
   font-weight: 800;
-
   text-transform: uppercase;
 }
 
 input[type="range"] {
   width: 100%;
-
   accent-color: #ed211b;
-
   cursor: pointer;
 }
 
@@ -401,11 +365,8 @@ input[type="range"] {
 
 .ingredient-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 10px;
-
   margin-bottom: 1.25rem;
 }
 
@@ -416,15 +377,10 @@ input[type="range"] {
 
 .ingredient-card {
   min-height: 170px;
-
   padding: 0.7rem;
-
   border: 2px solid #262626;
-
   background: transparent;
-
   color: #262626;
-
   text-align: left;
 }
 
@@ -435,15 +391,10 @@ input[type="range"] {
 
 .ingredient-header {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
-
   padding-bottom: 0.55rem;
-
   margin-bottom: 0.45rem;
-
   border-bottom: 1px solid #262626;
 }
 
@@ -453,9 +404,7 @@ input[type="range"] {
 
 .ingredient-name {
   font-size: 14px;
-
   font-weight: 900;
-
   text-transform: uppercase;
 }
 
@@ -466,31 +415,20 @@ input[type="range"] {
 
 .ingredient-checklist {
   display: flex;
-
   flex-direction: column;
-
   gap: 4px;
 }
 
 .ingredient-checklist label {
   display: flex;
-
   align-items: center;
-
   gap: 6px;
-
   padding: 3px 2px;
-
   font-size: 9px;
-
   font-weight: 900;
-
   text-transform: uppercase;
-
   line-height: 1.1;
-
   cursor: pointer;
-
   transition:
     background 0.1s ease,
     color 0.1s ease;
@@ -507,42 +445,29 @@ input[type="range"] {
 
 .ingredient-checklist input[type="checkbox"] {
   appearance: none;
-
   width: 13px;
   height: 13px;
-
   margin: 0;
-
   flex-shrink: 0;
-
   border: 2px solid #262626;
-
   background: transparent;
-
   cursor: pointer;
 }
 
 .ingredient-checklist
 input[type="checkbox"]:checked {
   background: #ed211b;
-
   border-color: #ed211b;
 }
 
 .ingredient-checklist
 input[type="checkbox"]:checked::after {
   content: "✓";
-
   display: block;
-
   color: white;
-
   font-size: 9px;
-
   font-weight: 900;
-
   line-height: 9px;
-
   text-align: center;
 }
 
@@ -550,7 +475,6 @@ input[type="checkbox"]:checked::after {
 input[type="checkbox"]:checked
 + span {
   color: #ed211b;
-
   font-weight: 800;
 }
 
@@ -565,21 +489,15 @@ input[type="checkbox"]:checked
 
 .custom-ingredients > label {
   display: block;
-
   margin-bottom: 0.5rem;
-
   color: #ed211b;
-
   font-size: 12px;
-
   font-weight: 800;
-
   text-transform: uppercase;
 }
 
 .ingredient-input-row {
   display: flex;
-
   gap: 8px;
 }
 
@@ -681,52 +599,39 @@ input[type="checkbox"]:checked
   position: relative;
   min-height: 500px;
   padding: 1.25rem;
-  border: 3px solid #262626;
+  border: 2px solid #262626;
   background: rgba(255, 255, 255, 0.12);
   transition: background 0.2s ease;
 }
 
 
 /* 
-   RECIPE ACTION BUTTONS
+   RECIPE REFRESH BUTTON
 */
 
 .recipe-actions {
   position: absolute;
-
   top: 0.75rem;
   right: 0.75rem;
-
   display: flex;
-
   gap: 5px;
-
   z-index: 2;
 }
 
 .recipe-action-button {
   width: 34px;
   height: 34px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: 0px solid #FFFBF5;
-
   background: transparent;
-
   color: #262626;
-
   font-family: "Syndicat Grotesk", sans-serif;
-
   font-size: 19px;
   font-weight: 900;
-
   line-height: 1;
-
   cursor: pointer;
 
   transition:
@@ -737,9 +642,7 @@ input[type="checkbox"]:checked
 
 .recipe-action-button:hover {
   background: #FFFBF5;
-
   border-color: #FFFBF5;
-
   color: #ed211b;
 }
 
@@ -747,9 +650,6 @@ input[type="checkbox"]:checked
   transform: rotate(90deg);
 }
 
-#startOver:hover {
-  transform: rotate(-90deg);
-}
 
 
 .recipe-action-button:active {
@@ -824,9 +724,7 @@ input[type="checkbox"]:checked
 
 
 
-/* 
-   GENERATE BUTTON
-*/
+/* GENERATE BUTTON */
 
 .generate-button {
   width: 100%;
@@ -939,7 +837,6 @@ input[type="checkbox"]:checked
 
   .content {
     width: 100%;
-
     padding: 9vh 6vw 9vh;
   }
 
@@ -949,9 +846,7 @@ input[type="checkbox"]:checked
 
   .title {
     font-size: 16vw;
-
     margin: 1vh 0 5vh;
-
     letter-spacing: -2px;
   }
 
@@ -961,19 +856,14 @@ input[type="checkbox"]:checked
 
   .columns {
     display: flex;
-
     flex-direction: column;
-
     gap: 35px;
-
     width: 100%;
-
     margin: 0;
   }
 
   .column {
     width: 100%;
-
     min-width: 0;
   }
 
@@ -993,13 +883,11 @@ input[type="checkbox"]:checked
 
   .flavor-options {
     grid-template-columns: repeat(2, 1fr);
-
     width: 100%;
   }
 
   .flavor-option {
     min-height: 45px;
-
     font-size: 9px;
   }
 
@@ -1009,9 +897,7 @@ input[type="checkbox"]:checked
 
   .ingredient-grid {
     grid-template-columns: repeat(2, 1fr);
-
     width: 100%;
-
     gap: 8px;
   }
 
@@ -1025,9 +911,7 @@ input[type="checkbox"]:checked
 
   .recipe-column {
     width: 100%;
-
     min-height: auto;
-
     padding: 1rem;
   }
 
@@ -1045,9 +929,7 @@ input[type="checkbox"]:checked
 
   .artwork {
     top: 0;
-
     width: 100%;
-
     margin-top: 20px;
   }
 
@@ -1057,9 +939,7 @@ input[type="checkbox"]:checked
 
   .bottom-border {
     height: 5.5vh;
-
     padding-right: 1rem;
-
     font-size: 8px;
   }
 
@@ -1078,9 +958,7 @@ input[type="checkbox"]:checked
 
   .content {
     padding-left: 5vw;
-
     padding-right: 5vw;
-
     padding-bottom: 10vh;
   }
 
@@ -1090,7 +968,6 @@ input[type="checkbox"]:checked
 
   .title {
     font-size: 17vw;
-
     letter-spacing: -2px;
   }
 
@@ -1101,7 +978,6 @@ input[type="checkbox"]:checked
 
   .ingredient-grid {
     grid-template-columns: 1fr;
-
     gap: 10px;
   }
 
@@ -1115,7 +991,6 @@ input[type="checkbox"]:checked
 
   .ingredient-input-row {
     flex-direction: column;
-
     gap: 8px;
   }
 
@@ -1146,7 +1021,6 @@ input[type="checkbox"]:checked
 
   .bottom-border {
     padding-right: 0.75rem;
-
     font-size: 7px;
   }
 

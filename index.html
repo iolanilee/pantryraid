@@ -561,102 +561,114 @@
 
         <!-- COLUMN THREE — RECIPE -->
          
-        <div class="column recipe-column">
 
-<div class="recipe-actions"> 
-  <button id="refreshRecipe" 
-  class="recipe-action-button" 
-  type="button" 
-  aria-label="Generate a new recipe" 
-  title="Generate a new recipe" > ↻ </button> 
+<!-- COLUMN THREE — RECIPE -->
 
-  <button id="startOver" 
-  class="recipe-action-button" 
-  type="button" 
-  aria-label="Start over" 
-  title="Start over" > ↺ </button> 
-</div>
+<div class="recipe-column-wrapper">
 
+  <!-- RECIPE BOX -->
+  <div class="column recipe-column">
 
+    <div class="recipe-actions">
 
+      <button
+        id="refreshRecipe"
+        class="recipe-action-button"
+        type="button"
+        aria-label="Generate a new recipe"
+        title="Generate a new recipe"
+      >
+        ↻
+      </button>
 
-          <div class="recipe-eyebrow">
-           What's cookin', good lookin' ?
-          </div>
+    </div>
 
-          <h2
-            id="recipeTitle"
-            class="recipe-title">
+    <div class="recipe-eyebrow">
+      What's cookin', good lookin' ?
+    </div>
 
-            Tonight's Recipe
+    <h2
+      id="recipeTitle"
+      class="recipe-title"
+    >
+      Tonight's Recipe
+    </h2>
 
-          </h2>
+    <div class="recipe-meta">
 
-          <div class="recipe-meta">
+      <span id="recipeTime">
+        ⏱ 15 MIN
+      </span>
 
-            <span id="recipeTime">
-              ⏱ 15 MIN
-            </span>
+      <span id="recipeDifficulty">
+        ★ EASY
+      </span>
 
-            <span id="recipeDifficulty">
-              ★ EASY
-            </span>
+      <span id="recipeFlavor">
+        🍓 SWEET
+      </span>
 
-            <span id="recipeFlavor">
-              🍓 SWEET
-            </span>
-
-          </div>
-
-
-          <!-- INGREDIENTS -->
-          <div class="recipe-section">
-
-            <h3>Ingredients</h3>
-
-            <ul id="recipeIngredients">
-
-              <li>
-                Add some ingredients first.
-              </li>
-
-            </ul>
-
-          </div>
+    </div>
 
 
+    <!-- INGREDIENTS -->
+    <div class="recipe-section">
+
+      <h3>Ingredients</h3>
+
+      <ul id="recipeIngredients">
+
+        <li>
+          Add some ingredients first.
+        </li>
+
+      </ul>
+
+    </div>
 
 
-<!-- INSTRUCTIONS -->
-<div class="recipe-section">
+    <!-- INSTRUCTIONS -->
+    <div class="recipe-section">
 
-  <h3>How to make it</h3>
+      <h3>How to make it</h3>
 
-  <ul
-    id="recipeInstructions"
-    class="recipe-instructions"
+      <ul
+        id="recipeInstructions"
+        class="recipe-instructions"
+      >
+
+        <li>
+          Once you have compiled a selection of ingredients, click the button below.
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- GENERATE -->
+    <button
+      id="generateRecipe"
+      class="generate-button"
+      type="button"
+    >
+      🍴 Feed Me
+    </button>
+
+  </div>
+
+
+  <!-- START OVER -->
+  <button
+    id="startOver"
+    class="start-over-button"
+    type="button"
   >
-    <li>
-      Once you have compiled a selection of ingredients, click the button below.
-    </li>
-  </ul>
+  Start Over
+  </button>
 
 </div>
 
-
-
-
-
-          <!-- GENERATE -->
-          <button
-            id="generateRecipe"
-            class="generate-button"
-            type="button"
-          >
-            🍴 Feed Me
-          </button>
-
-        </div>
 
       </section>
 
